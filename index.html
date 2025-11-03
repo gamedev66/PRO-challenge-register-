@@ -314,7 +314,7 @@
             </h3>
             <div class="text-center">
                 <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-                    **Pokémon Revolution Online (PRO)** is a popular free-to-play massive multiplayer online Pokémon game. It features **four classic regions (Kanto, Johto, Hoenn, and Sinnoh)** and allows players to battle, trade, and explore a vast, interconnected world with thousands of other trainers. To compete in this championship, you must have an active PRO account.
+                    Pokémon Revolution Online (PRO) is a popular free-to-play massive multiplayer online Pokémon game. It features four classic regions (Kanto, Johto, Hoenn, and Sinnoh) and allows players to battle, trade, and explore a vast, interconnected world with thousands of other trainers. To compete in this championship, you must have an active PRO account.
                 </p>
                 <a href="https://pokemon-revolution-online.net/Download.php" target="_blank" class="btn-download">
                     <span class="mr-2 text-2xl">⬇️</span> Download PRO Here
@@ -332,7 +332,7 @@
                     <h4 class="font-bold text-lg mb-1 text-red-400 flex items-center">
                         <span class="mr-2">🏆</span> Format: The Race
                     </h4>
-                    <p>A long-form, multi-stage race through 4 regions: **Kanto** $\rightarrow$ **Johto** $\rightarrow$ **Hoenn** $\rightarrow$ **Sinnoh**. **Collective Progression** is mandatory.
+                    <p>A long-form, multi-stage race through 4 regions: Kanto $\rightarrow$ Johto $\rightarrow$ Hoenn $\rightarrow$ Sinnoh. Collective Progression is mandatory.
                     </p>
                 </div>
                 
@@ -340,19 +340,19 @@
                     <h4 class="font-bold text-lg mb-1 text-red-400 flex items-center">
                         <span class="mr-2">📝</span> Progression Rule
                     </h4>
-                    <p>Once a player completes a region (e.g., Kanto), they must **wait** until **all** registered participants complete it before the entire group moves simultaneously to the next region (e.g., Johto).</p>
+                    <p>Once a player completes a region (e.g., Kanto), they must wait until all registered participants complete it before the entire group moves simultaneously to the next region (e.g., Johto).</p>
                 </div>
                 
                 <div class="p-4 bg-gray-700/50 rounded-lg shadow-inner">
                     <h4 class="font-bold text-lg mb-1 text-red-400 flex items-center">
                         <span class="mr-2">⚔️</span> The Final Showdown
                     </h4>
-                    <p>The **first Trainers** to successfully complete the Sinnoh region's story will enter a **Single Elimination** tournament bracket to determine the Grand Champion.</p>
+                    <p>The first Trainers to successfully complete the Sinnoh region's story will enter a Single Elimination tournament bracket to determine the Grand Champion.</p>
                 </div>
             </div>
             <div class="mt-4 text-center border-t pt-3 border-gray-600">
                 <p class="text-base text-gray-300">
-                    <span class="font-bold accent-text">Tier Restriction:</span> All **Legendary and Mythical Pokémon (Uber tier)** are strictly **banned** from this competition. Bring your strongest non-Legendary team!
+                    <span class="font-bold accent-text">Tier Restriction:</span> All Legendary and Mythical Pokémon (Uber tier) are strictly banned from this competition. Bring your strongest non-Legendary team!
                 </p>
             </div>
         </div>
@@ -421,12 +421,7 @@
         let db, auth, userId = null;
         let isAuthReady = false;
         
-        // --- ADMIN CONFIG: HARDCODED TO REMOVE IT FROM PUBLIC UI ---
-        const adminNotificationEmail = "hrisheekeshrprabhu1@gmail.com"; 
-        // -----------------------------------------------------------
-
-        // UI Element References
-        // Removed: authStatusEl and userIdDisplayEl
+        // --- UI Element References ---
         const errorEl = document.getElementById('error-message');
         const loadingEl = document.getElementById('loading-indicator');
         const submitSpinner = document.getElementById('submit-spinner-icon');
@@ -434,20 +429,6 @@
 
         const inputName = document.getElementById('player-name');
         const inputGamertag = document.getElementById('gamertag');
-
-        // --- Mock External Service (Simulates a server/backend call for notification) ---
-        async function mockExternalService(gamertag, realName) {
-            
-            console.groupCollapsed(`[MOCK EXTERNAL SERVICE] Registration Event for ${gamertag}`);
-            console.log(`1. Admin Notification (Mock-Sent): New Trainer Registered: ${gamertag} (Real Name: ${realName})`);
-            console.log("!!! NOTE: This simulates external server activity, like a Discord notification or admin email. !!!");
-            console.groupEnd();
-
-            return new Promise(resolve => {
-                setTimeout(() => resolve(true), 1000); // Simulate network delay
-            });
-        }
-        // -----------------------------------------------------------
 
         function displayError(message, isSuccess = false) {
             errorEl.textContent = isSuccess ? `Success! ${message}` : `Error: ${message}`;
@@ -573,7 +554,7 @@
                 };
 
                 await setDoc(registrationDocRef, data);
-                await mockExternalService(gamertag, playerName);
+                // Removed the mockExternalService call
 
                 displayError(`Welcome, ${gamertag}! Your registration is complete. You are now locked in for the Grand Championship Challenge!`, true);
 
@@ -687,3 +668,5 @@
 
 </body>
 </html>
+
+
